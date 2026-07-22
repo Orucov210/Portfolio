@@ -1,69 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ənəs Orucov | Portfolio</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .hero-section { padding: 120px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        .accent-color { color: #38bdf8; }
-        .card-custom { background-color: #1e293b; border: 1px solid #334155; color: #f8fafc; transition: transform 0.3s; }
-        .card-custom:hover { transform: translateY(-5px); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ənəs Orucov — Full-Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #c084fc, #8b5cf6, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glow {
+      box-shadow: 0 0 40px -10px rgba(139, 92, 246, 0.3);
+    }
+    .glow-strong {
+      box-shadow: 0 0 60px -10px rgba(139, 92, 246, 0.4);
+    }
+    .card-hover {
+      transition: all 0.35s ease;
+    }
+    .card-hover:hover {
+      border-color: #8b5cf6;
+      box-shadow: 0 0 30px -8px rgba(139, 92, 246, 0.25);
+      transform: translateY(-4px);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .animate-float {
+      animation: float 7s ease-in-out infinite;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up {
+      opacity: 0;
+      animation: fadeInUp 0.9s ease-out forwards;
+    }
+    .delay-100 { animation-delay: 0.12s; }
+    .delay-200 { animation-delay: 0.24s; }
+    .delay-300 { animation-delay: 0.36s; }
+    .delay-400 { animation-delay: 0.48s; }
+    .grid-bg {
+      background-image: radial-gradient(#334155 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 0.25;
+    }
+    .nav-blur {
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.75);
+    }
+  </style>
 </head>
-<body>
+<body class="antialiased selection:bg-[#8b5cf6] selection:text-white">
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand font-monospace text-info" href="#">&lt;OrudjovCPP&gt;</a>
-            <span class="navbar-text text-muted">Advanced Code Ecosystem</span>
-        </div>
-    </nav>
+  <!-- Background Grid -->
+  <div class="fixed inset-0 grid-bg pointer-events-none -z-10"></div>
 
-    <!-- Hero Section -->
-    <div class="hero-section text-center">
-        <div class="container">
-            <h1 class="display-3 fw-bold">Salam, Mən <span class="accent-color">Ənəs Orucov</span></h1>
-            <p class="lead mt-3 fs-4 text-secondary">Full-Stack Developer & Alqoritm Mütəxəssisi</p>
-            <div class="mt-4">
-                <p class="mx-auto" style="max-width: 600px;">C++, Python (AI/Backend) və Full-Stack Web texnologiyaları ilə işləyirəm. Mürəkkəb alqoritmlər qurmağı, sistemin həm görünən, həm də arxa fon (backend) məntiqlərini sıfırdan hazırlamağı sevirəm.</p>
-            </div>
-        </div>
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-[#334155]/60">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="text-xl font-extrabold tracking-tight text-[#f8fafc]">OrudjovCPP</a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#94a3b8]">
+        <a href="#about" class="hover:text-[#8b5cf6] transition-colors" data-en="About me" data-az="Haqqımda">About me</a>
+        <a href="#ace" class="hover:text-[#8b5cf6] transition-colors">ACE</a>
+        <a href="#expertise" class="hover:text-[#8b5cf6] transition-colors" data-en="Expertise" data-az="İxtisas">Expertise</a>
+        <a href="#connect" class="hover:text-[#8b5cf6] transition-colors" data-en="Connect" data-az="Əlaqə">Connect</a>
+      </div>
+      <!-- Language Switcher Button -->
+      <div class="flex items-center gap-3">
+        <button id="langToggle" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg bg-[#1e293b] border border-[#334155] text-xs font-semibold text-[#c084fc] hover:border-[#8b5cf6] transition-all">
+          AZ / EN
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+      <div class="absolute top-1/3 left-1/4 w-[28rem] h-[28rem] bg-[#8b5cf6] rounded-full mix-blend-screen filter blur-[6rem] opacity-20 animate-float"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-[24rem] h-[24rem] bg-[#6366f1] rounded-full mix-blend-screen filter blur-[5rem] opacity-20 animate-float" style="animation-delay: 3.5s;"></div>
     </div>
 
-    <!-- Skills Section -->
-    <div class="container my-5 py-4">
-        <h2 class="text-center mb-5 fw-bold"><span class="accent-color">#</span> Bacarıqlarım</h2>
-        <div class="row g-4 justify-content-center">
-            <!-- C++ Card -->
-            <div class="col-md-4">
-                <div class="card card-custom p-4 text-center h-100">
-                    <h3 class="h4 text-info">C++ & Alqoritmlər</h3>
-                    <p class="text-secondary mt-2">Competitive Programming, mürəkkəb məntiqi tapşırıqların və optimizasiya problemlərinin həlli.</p>
-                </div>
-            </div>
-            <!-- Python Card -->
-            <div class="col-md-4">
-                <div class="card card-custom p-4 text-center h-100">
-                    <h3 class="h4 text-warning">Python & AI</h3>
-                    <p class="text-secondary mt-2">Süni intellekt (AI) inteqrasiyaları, data idarəetməsi və backend avtomatlaşdırma skriptləri.</p>
-                </div>
-            </div>
-            <!-- Full-Stack Card -->
-            <div class="col-md-4">
-                <div class="card card-custom p-4 text-center h-100">
-                    <h3 class="h4 text-success">Full-Stack Web Dev</h3>
-                    <p class="text-secondary mt-2">Həm frontend interfeyslərin yığılması, həm də arxa fon (backend) məntiqinin qurulması.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="max-w-5xl mx-auto text-center pt-20">
+      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#1e293b] border border-[#334155] text-sm text-[#94a3b8] mb-8 fade-in-up">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#8b5cf6]"></span>
+        </span>
+        Baku, Azerbaijan
+      </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-8 fade-in-up delay-100">
+        <span class="block text-[#f8fafc]">Ənəs Orucov</span>
+        <span class="block text-gradient mt-3 md:mt-4" data-en="Full-Stack Developer" data-az="Full-Stack Proqramçı">Full-Stack Developer</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-[#94a3b8] max-w-2xl mx-auto mb-12 leading-relaxed fade-in-up delay-200" data-en="Creator of the <span class='text-[#c084fc] font-semibold'>ACE Ecosystem</span>. I build across the stack — from modern frontends and AI integrations to high-performance C++ systems. Passionate about clean architecture and developer experience." data-az="<span class='text-[#c084fc] font-semibold'>ACE Ekosisteminin</span> yaradıcısıyam. Müasir frontend və süni intellekt inteqrasiyalarından tutmuş yüksək məhsuldarlıqlı C++ sistemlərinə qədər hər sahədə proqramlar qururam. Təmiz arxitektura və inkişafetdirmə təcrübəsinə həvəsliyəm.">
+        Creator of the <span class="text-[#c084fc] font-semibold">ACE Ecosystem</span>. I build across the stack — from modern frontends and AI integrations to high-performance C++ systems. Passionate about clean architecture and developer experience.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4 fade-in-up delay-300">
+        <a href="https://github.com/Orucov210" target="_blank" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#8b5cf6] text-white font-semibold hover:bg-[#7c3aed] transition-all glow">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/%C9%99n%C9%99s-orucov-a64106338/" target="_blank" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#1e293b] border border-[#334155] text-[#f8fafc] font-semibold hover:border-[#8b5cf6] hover:text-[#8b5cf6] transition-all">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
+        <div class="shrink-0">
+          <div class="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br from-[#8b5cf6] to-[#6366f1] flex items-center justify-center text-white text-4xl md:text-5xl font-bold shadow-2xl glow">
+            Ə
+          </div>
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#f8fafc] mb-4" data-en="About Me" data-az="Haqqımda">About Me</h2>
+          <p class="text-[#94a3b8] text-lg leading-relaxed" data-en="I’m a developer based in <span class='text-[#c084fc]'>Baku, Azerbaijan</span>, currently driving product and engineering at <span class='text-[#f8fafc] font-medium'>ACE</span>. My work spans the full stack — from pixel-perfect interfaces to robust backends and AI-powered features. When I’m not shipping code, I’m exploring competitive programming and experimenting with new developer tools." data-az="Azərbaycanın <span class='text-[#c084fc]'>Bakı</span> şəhərində fəaliyyət göstərən proqramçıyam, hazırda <span class='text-[#f8fafc] font-medium'>ACE</span> layihəsinin mühəndisliyi ilə məşğulam. İşim full-stack sahəsini əhatə edir — dəqiq interfeyslərdən tutmuş güclü bakend sistemlərinə və süni intellekt xüsusiyyətlərinə qədər. Kod yazmadığım vaxtlarda olimpiya proqramlaşdırması ilə məşğul olur və yeni alətlər sınaqdan keçirirəm.">
+            I’m a developer based in <span class="text-[#c084fc]">Baku, Azerbaijan</span>, currently driving product and engineering at 
+            <span class="text-[#f8fafc] font-medium">ACE</span>. My work spans the full stack — from pixel-perfect interfaces to robust backends and AI-powered features. 
+            When I’m not shipping code, I’m exploring competitive programming and experimenting with new developer tools.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACE Ecosystem -->
+  <section id="ace" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="relative bg-[#1e293b] border border-[#334155] rounded-3xl p-8 md:p-14 overflow-hidden glow-strong card-hover">
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-[#8b5cf6] rounded-full mix-blend-screen filter blur-[5rem] opacity-20 pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-10">
+          <div class="flex-1">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 text-[#c084fc] text-sm font-semibold mb-5" data-en="Flagship Project" data-az="Əsas Layihə">
+              Flagship Project
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold text-[#f8fafc] mb-5">ACE Ecosystem</h2>
+            <p class="text-[#94a3b8] text-lg leading-relaxed mb-8 max-w-xl" data-en="ACE is a full-stack ecosystem I created to unify modern web development, systems programming, and AI. Designed for scalability and modularity, it brings together performance-critical C++ components, dynamic frontends, and intelligent automation." data-az="ACE — müasir veb proqramlaşdırmanı, sistem proqramlaşdırmasını və süni intellekti birləşdirmək üçün yaratdığım full-stack ekosistemdir. Genişlənmə və modulluq üçün nəzərdə tutulmuşdur, yüksək məhsuldarlıqlı C++ komponentlərini və dinamik interfeysləri bir araya gətirir.">
+              ACE is a full-stack ecosystem I created to unify modern web development, systems programming, and AI. Designed for scalability and modularity, it brings together performance-critical C++ components, dynamic frontends, and intelligent automation.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3.5 py-1.5 rounded-lg bg-[#0f172a] border border-[#334155] text-[#94a3b8] text-sm font-medium" data-en="Full-Stack Architecture" data-az="Full-Stack Arxitektura">Full-Stack Architecture</span>
+              <span class="px-3.5 py-1.5 rounded-lg bg-[#0f172a] border border-[#334155] text-[#94a3b8] text-sm font-medium" data-en="C++ Core" data-az="C++ Nüvəsi">C++ Core</span>
+              <span class="px-3.5 py-1.5 rounded-lg bg-[#0f172a] border border-[#334155] text-[#94a3b8] text-sm font-medium" data-en="AI Integration" data-az="Süni İntellekt İnteqrasiyası">AI Integration</span>
+              <span class="px-3.5 py-1.5 rounded-lg bg-[#0f172a] border border-[#334155] text-[#94a3b8] text-sm font-medium" data-en="Developer Tools" data-az="Tərtibatçı Alətləri">Developer Tools</span>
+            </div>
+          </div>
+          <div class="shrink-0 flex justify-center md:justify-end">
+            <div class="w-36 h-36 md:w-44 md:h-44 rounded-3xl bg-gradient-to-br from-[#8b5cf6] to-[#4f46e5] flex items-center justify-center text-white text-6xl md:text-7xl font-extrabold shadow-2xl">
+              A
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise -->
+  <section id="expertise" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#f8fafc] mb-4" data-en="Expertise" data-az="İxtisas">Expertise</h2>
+        <p class="text-[#94a3b8] max-w-lg mx-auto text-lg" data-en="Domains and technologies I use daily to turn complex problems into elegant solutions." data-az="Mürəkkəb problemləri zərif həllərə çevirmək üçün gündəlik istifadə etdiyim texnologiyalar.">Domains and technologies I use daily to turn complex problems into elegant solutions.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#1e293b] border border-[#334155] rounded-2xl p-8 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center mb-6 text-[#8b5cf6]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#f8fafc] mb-3" data-en="Frontend Web Development" data-az="Frontend Veb Proqramlaşdırma">Frontend Web Development</h3>
+          <p class="text-[#94a3b8] leading-relaxed" data-en="Responsive, accessible, and performant interfaces built with modern frameworks, clean component architecture, and design-system thinking." data-az="Müasir freymvorklər və təmiz komponent arxitekturası ilə qurulmuş responsiv, sürətli və rahat interfeyslər.">Responsive, accessible, and performant interfaces built with modern frameworks, clean component architecture, and design-system thinking.</p>
+        </div>
+
+        <div class="bg-[#1e293b] border border-[#334155] rounded-2xl p-8 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center mb-6 text-[#8b5cf6]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-14.25v9"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#f8fafc] mb-3" data-en="C++ & Systems" data-az="C++ və Sistemlər">C++ & Systems</h3>
+          <p class="text-[#94a3b8] leading-relaxed" data-en="High-performance backends, algorithmic solutions, and low-level systems programming with a focus on memory safety and concurrency." data-az="Yüksək məhsuldarlıqlı bakend sistemləri, alqoritmik həllər və yaddaş təhlükəsizliyinə diqqət yetirməklə aşağı səviyyəli proqramlaşdırma.">High-performance backends, algorithmic solutions, and low-level systems programming with a focus on memory safety and concurrency.</p>
+        </div>
+
+        <div class="bg-[#1e293b] border border-[#334155] rounded-2xl p-8 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center mb-6 text-[#8b5cf6]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#f8fafc] mb-3" data-en="AI Integrations" data-az="Süni İntellekt İnteqrasiyaları">AI Integrations</h3>
+          <p class="text-[#94a3b8] leading-relaxed" data-en="Connecting applications with LLMs, automation pipelines, and intelligent APIs to create adaptive, next-generation user experiences." data-az="Növbəti nəsil istifadəçi təcrübələri yaratmaq üçün tətbiqləri dil modelləri və ağıllı API-lərlə əlaqələndirmək.">Connecting applications with LLMs, automation pipelines, and intelligent APIs to create adaptive, next-generation user experiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect -->
+  <section id="connect" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-[#f8fafc] mb-6" data-en="Let's Build Together" data-az="Birlikdə Quraq">Let's Build Together</h2>
+      <p class="text-[#94a3b8] text-lg mb-12 max-w-xl mx-auto leading-relaxed" data-en="Open to collaborations, full-stack projects, and conversations about C++, AI, and modern web architecture." data-az="Əməkdaşlıqlara, full-stack layihələrə və C++, Süni İntellekt və müasir veb arxitekturası üzrə müzakirələrə açığam.">
+        Open to collaborations, full-stack projects, and conversations about C++, AI, and modern web architecture.
+      </p>
+
+      <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+        <a href="https://github.com/Orucov210" target="_blank" class="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#1e293b] border border-[#334155] text-[#f8fafc] font-semibold hover:border-[#8b5cf6] hover:text-[#8b5cf6] transition-all card-hover">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/%C9%99n%C9%99s-orucov-a64106338/" target="_blank" class="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#1e293b] border border-[#334155] text-[#f8fafc] font-semibold hover:border-[#8b5cf6] hover:text-[#8b5cf6] transition-all card-hover">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 px-6 border-t border-[#334155]/60">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-[#94a3b8] text-sm" data-en="© 2026 Ənəs Orucov. All rights reserved." data-az="© 2026 Ənəs Orucov. Bütün hüquqlar qorunur.">© 2026 Ənəs Orucov. All rights reserved.</p>
+      <p class="text-[#64748b] text-xs" data-en="Crafted with care in Baku, Azerbaijan." data-az="Bakı, Azərbaycan şəhərində sevgi ilə hazırlanmışdır.">Crafted with care in Baku, Azerbaijan.</p>
+    </div>
+  </footer>
+
+  <script>
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'az' : 'en';
+      document.getElementById('langToggle').innerText = currentLang === 'en' ? 'AZ / EN' : 'EN / AZ';
+      
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${currentLang}`);
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.animationPlayState = 'running';
+          });
+          const fadeElements = entry.target.querySelectorAll('.fade-in-up');
+          if (fadeElements.length === 0) {
+            entry.target.classList.add('fade-in-up');
+          }
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>

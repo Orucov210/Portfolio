@@ -1,10 +1,26 @@
-// GitHub dil analizində JavaScript-in aktiv tanınması və konsol mesajı
-console.log("OrudjovCPP Portfolio Loaded Successfully!");
-console.log("Active Stack: HTML5, CSS3, JavaScript, Full-Stack Architecture");
+let currentLang = 'en';
 
-document.addEventListener("DOMContentLoaded", () => {
-    const heroTitle = document.querySelector("h1");
-    heroTitle.addEventListener("mouseover", () => {
-        heroTitle.style.opacity = "0.95";
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'az' : 'en';
+    document.getElementById('langToggle').innerText = currentLang === 'en' ? 'AZ / EN' : 'EN / AZ';
+    
+    document.querySelectorAll('[data-en]').forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${currentLang}`);
     });
-});
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.fade-in-up').forEach(el => {
+                el.style.animationPlayState = 'running';
+            });
+            const fadeElements = entry.target.querySelectorAll('.fade-in-up');
+            if (fadeElements.length === 0) {
+                entry.target.classList.add('fade-in-up');
+            }
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('section').forEach(section => observer.observe(section));

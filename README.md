@@ -1,11 +1,15 @@
-# 🚀 ACE Ecosystem | Full-Stack Portfolio
+# 🚀 OrudjovCPP - Personal Portfolio & ACE Ecosystem
 
-Salam! Bu repozitoriya mənim (**Ənəs Orucov** / **OrudjovCPP**) Full-Stack Developer olaraq hazırladığım şəxsi portfel və ACE ekosistem səhifəmi ehtiva edir.
+Modern, high-performance personal portfolio built to showcase Full-Stack development capabilities, algorithmic problem-solving, and AI integrations.
 
-## 🛠️ İstifadə Olunan Texnologiyalar
-* **Frontend:** HTML5, CSS3, Tailwind CSS (Modern & Responsive UI)
-* **Scripting / Logic:** JavaScript (İkitilli AZ/EN dinamik dəstək)
-* **Core & Architecture:** C++, Full-Stack Systems, AI Integrations
+## 🛠️ Built With / Tech Stack
+* **Frontend:** HTML5, CSS3 (Modern Flexbox/Grid), JavaScript (ES6+)
+* **Architecture:** Responsive, clean component layout optimized for speed.
+* **Ecosystem:** Integrated with ACE (Advanced Code Ecosystem).
 
-## 🌐 Canlı Keçid
-Sayt GitHub Pages vasitəsilə avtomatik olaraq yayımlanır.
+## 🌐 Live Preview
+You can check out the live version here: [orucov210.github.io/Portfolio](https://orucov210.github.io/Portfolio/)
+
+## 👨‍💻 Author
+* **Enes Orucov (OrudjovCPP)**
+* Junior Full-Stack Developer & Competitive Programmer

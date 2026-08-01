@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ənəs Orucov — Full-Stack Developer</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Xarici CSS faylımızı qoşuruq -->
+    <!-- Xarici CSS Faylı -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased selection:bg-[#8b5cf6] selection:text-white">
@@ -16,7 +17,7 @@
     <!-- Background Grid -->
     <div class="fixed inset-0 grid-bg pointer-events-none -z-10"></div>
 
-    <!-- Nav -->
+    <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-[#334155]/60">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="#" class="text-xl font-extrabold tracking-tight text-[#f8fafc]">OrudjovCPP</a>
@@ -34,7 +35,7 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <header class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
             <div class="absolute top-1/3 left-1/4 w-[28rem] h-[28rem] bg-[#8b5cf6] rounded-full mix-blend-screen filter blur-[6rem] opacity-20 animate-float"></div>
@@ -70,9 +71,124 @@
         </div>
     </header>
 
-    <!-- Diğer bölmələr (About, ACE, Expertise, Connect, Footer) eynilə qalır... -->
+    <!-- About Section -->
+    <section id="about" class="py-28 px-6 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="p-8 md:p-12 rounded-3xl bg-[#1e293b]/50 border border-[#334155]/60 backdrop-blur-xl card-hover fade-in-up">
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#8b5cf6] to-[#6366f1] flex items-center justify-center text-4xl font-extrabold text-white shadow-lg shrink-0">
+                        Ə
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold tracking-tight text-[#f8fafc] mb-4" data-en="About Me" data-az="Haqqımda">About Me</h2>
+                        <p class="text-[#94a3b8] leading-relaxed text-base md:text-lg" data-en="I'm a developer based in <span class='text-[#f8fafc] font-medium'>Baku, Azerbaijan</span>, currently driving product and engineering at <span class='text-[#c084fc] font-semibold'>ACE</span>. My work spans the full stack — from pixel-perfect interfaces to robust backends and AI-powered features. When I'm not shipping code, I'm exploring competitive programming and experimenting with new developer tools." data-az="Mən <span class='text-[#f8fafc] font-medium'>Bakı, Azərbaycan</span> şəhərində yerləşən proqramçıyam, hazırda <span class='text-[#c084fc] font-semibold'>ACE</span> layihəsində məhsul və mühəndislik istiqamətinə rəhbərlik edirəm. İşim full-stack sahəsini əhatə edir — piksel dəqiqliyində interfeyslərdən tutmuş güclü backend və süni intellekt dəstəkli xüsusiyyətlərə qədər. Kod yazmadığım vaxtlarda idman proqramlaşdırması ilə məşğul olur və yeni alətlər sınaqdan keçirirəm.">
+                            I'm a developer based in <span class="text-[#f8fafc] font-medium">Baku, Azerbaijan</span>, currently driving product and engineering at <span class="text-[#c084fc] font-semibold">ACE</span>. My work spans the full stack — from pixel-perfect interfaces to robust backends and AI-powered features. When I'm not shipping code, I'm exploring competitive programming and experimenting with new developer tools.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Xarici JS faylımızı qoşuruq -->
+    <!-- ACE Ecosystem Section -->
+    <section id="ace" class="py-28 px-6 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="p-8 md:p-12 rounded-3xl bg-[#1e293b]/50 border border-[#334155]/60 backdrop-blur-xl card-hover fade-in-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/30 text-xs font-semibold text-[#c084fc] mb-6" data-en="Flagship Project" data-az="Əsas Layihə">
+                    Flagship Project
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-[#f8fafc] mb-6">
+                    ACE Ecosystem
+                </h2>
+                <p class="text-[#94a3b8] leading-relaxed text-base md:text-lg mb-8" data-en="ACE is a full-stack ecosystem I created to unify modern web development, systems programming, and AI. Designed for scalability and modularity, it brings together performance-critical C++ components, dynamic frontends, and intelligent automation." data-az="ACE — müasir veb inkişafını, sistem proqramlaşdırmasını və süni intellekti birləşdirmək üçün yaratdığım full-stack ekosistemidir. Genişləndirilə bilən və modul dizaynlı bu layihə performans baxımından vacib C++ komponentlərini, dinamik interfeysləri və ağıllı avtomatlaşdırmanı bir araya gətirir.">
+                    ACE is a full-stack ecosystem I created to unify modern web development, systems programming, and AI. Designed for scalability and modularity, it brings together performance-critical C++ components, dynamic frontends, and intelligent automation.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 rounded-xl bg-[#0f172a] border border-[#334155] text-xs font-medium text-[#c084fc]">Full-Stack Architecture</span>
+                    <span class="px-4 py-2 rounded-xl bg-[#0f172a] border border-[#334155] text-xs font-medium text-[#c084fc]">C++ Core</span>
+                    <span class="px-4 py-2 rounded-xl bg-[#0f172a] border border-[#334155] text-xs font-medium text-[#c084fc]">AI Integration</span>
+                    <span class="px-4 py-2 rounded-xl bg-[#0f172a] border border-[#334155] text-xs font-medium text-[#c084fc]">Developer Tools</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-28 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-[#f8fafc] mb-4" data-en="Expertise" data-az="İxtisas">Expertise</h2>
+                <p class="text-[#94a3b8]" data-en="Domains and technologies I use daily to turn complex problems into elegant solutions." data-az="Mürəkkəb problemləri zərif həllərə çevirmək üçün gündəlik istifadə etdiyim sahələr və texnologiyalar.">
+                    Domains and technologies I use daily to turn complex problems into elegant solutions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-8 rounded-3xl bg-[#1e293b]/40 border border-[#334155]/60 backdrop-blur-xl card-hover fade-in-up delay-100">
+                    <div class="w-12 h-12 rounded-xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/30 flex items-center justify-center text-[#c084fc] mb-6">
+                        🌐
+                    </div>
+                    <h3 class="text-xl font-bold text-[#f8fafc] mb-3" data-en="Frontend Web Development" data-az="Frontend Veb Proqramlaşdırma">Frontend Web Development</h3>
+                    <p class="text-[#94a3b8] text-sm leading-relaxed" data-en="Responsive, accessible, and performant interfaces built with modern frameworks, clean component architecture, and design-system thinking." data-az="Müasir freymvorklər, təmiz komponent arxitekturası və dizayn-sistem düşüncəsi ilə qurulmuş adaptiv, əlçatan və sürətli interfeyslər.">
+                        Responsive, accessible, and performant interfaces built with modern frameworks, clean component architecture, and design-system thinking.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-8 rounded-3xl bg-[#1e293b]/40 border border-[#334155]/60 backdrop-blur-xl card-hover fade-in-up delay-200">
+                    <div class="w-12 h-12 rounded-xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/30 flex items-center justify-center text-[#c084fc] mb-6">
+                        ⚡
+                    </div>
+                    <h3 class="text-xl font-bold text-[#f8fafc] mb-3" data-en="C++ & Systems" data-az="C++ və Sistemlər">C++ & Systems</h3>
+                    <p class="text-[#94a3b8] text-sm leading-relaxed" data-en="High-performance backends, algorithmic solutions, and low-level systems programming with a focus on memory safety and concurrency." data-az="Yüksək məhsuldarlıqlıbackendlər, alqoritmik həllər və yaddaş təhlükəsizliyinə yönəlmiş aşağı səviyyəli sistem proqramlaşdırması.">
+                        High-performance backends, algorithmic solutions, and low-level systems programming with a focus on memory safety and concurrency.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-8 rounded-3xl bg-[#1e293b]/40 border border-[#334155]/60 backdrop-blur-xl card-hover fade-in-up delay-300">
+                    <div class="w-12 h-12 rounded-xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/30 flex items-center justify-center text-[#c084fc] mb-6">
+                        🤖
+                    </div>
+                    <h3 class="text-xl font-bold text-[#f8fafc] mb-3" data-en="AI Integrations" data-az="Süni İntellekt İnteqrasiyaları">AI Integrations</h3>
+                    <p class="text-[#94a3b8] text-sm leading-relaxed" data-en="Connecting applications with LLMs, automation pipelines, and intelligent APIs to create adaptive, next-generation user experiences." data-az="Nəsil istifadəçi təcrübələri yaratmaq üçün tətbiqləri LLM-lər, avtomatlaşdırma xətləri və ağıllı API-lərlə birləşdirmək.">
+                        Connecting applications with LLMs, automation pipelines, and intelligent APIs to create adaptive, next-generation user experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section id="connect" class="py-28 px-6 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="p-12 rounded-3xl bg-[#1e293b]/50 border border-[#334155]/60 backdrop-blur-xl card-hover fade-in-up">
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-[#f8fafc] mb-6" data-en="Let's Build Together" data-az="Gəlin Birlikdə Quraq">Let's Build Together</h2>
+                <p class="text-[#94a3b8] max-w-xl mx-auto mb-10 text-base md:text-lg" data-en="Open to collaborations, full-stack projects, and conversations about C++, AI, and modern web architecture." data-az="Əməkdaşlıqlara, full-stack layihələrə, C++, süni intellekt və müasir veb arxitekturası haqqında müzakirələrə açığam.">
+                    Open to collaborations, full-stack projects, and conversations about C++, AI, and modern web architecture.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://github.com/Orucov210" target="_blank" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#8b5cf6] text-white font-semibold hover:bg-[#7c3aed] transition-all glow">
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/%C9%99n%C9%99s-orucov-a64106338/" target="_blank" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#1e293b] border border-[#334155] text-[#f8fafc] font-semibold hover:border-[#8b5cf6] hover:text-[#8b5cf6] transition-all">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-[#334155]/40 text-sm text-[#94a3b8]">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <p>&copy; 2026 Ənəs Orucov. All rights reserved.</p>
+            <p>Crafted with care in Baku, Azerbaijan.</p>
+        </div>
+    </footer>
+
+    <!-- Xarici JS Faylı -->
     <script src="script.js"></script>
 </body>
 </html>
